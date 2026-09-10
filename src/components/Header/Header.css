@@ -1,0 +1,60 @@
+.header {
+    background: var(--colorInk);
+    color: var(--colorBg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* CAMBIA ESTAS DOS LÍNEAS: */
+  padding-top: 2.5rem;    /* Aumenta este valor a tu gusto */
+  padding-bottom: 2.5rem; /* Asegúrate de poner el mismo valor abajo para que quede centrado */
+  
+  flex-wrap: wrap;
+  gap: var(--spaceXs);
+  width: 100%;
+}
+
+.headerBrand {
+    font-family: var(--fontDisplay);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--colorBg);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.headerBrandMark {
+    color: var(--colorAccent);
+}
+
+.headerNav {
+    display: flex;
+    gap: var(--spaceMd);
+}
+
+.headerLink {
+    color: var(--colorBg);
+    opacity: 0.75;
+    text-decoration: none;
+    font-weight: 500;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.headerLink:hover {
+    opacity: 1;
+}
+
+.headerLinkActive {
+    opacity: 1;
+    border-bottom-color: var(--colorAccent);
+}
