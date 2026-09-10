@@ -1,4 +1,6 @@
-import './FiltersBar.css'
+import FilterSelect from '../FilterSelect/FilterSelect';
+import SearchBar from '../SearchBar/SearchBar';
+import './FiltersBar.css';
 
 function FiltersBar({ search, onSearchChange, house, onHouseChange, role, onRoleChange }) {
     return (

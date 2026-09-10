@@ -1,4 +1,4 @@
-import CharacterCard from "../CharacterCard/CharacterCard";
+import CharacterCard from '../CharacterCard/CharacterCard';
 import './CharacterList.css'
 
 function CharacterList({ characters }) {
