@@ -112,17 +112,19 @@ select:focus-visible {
 .btnGhost {
   background: transparent;
   color: var(--colorInk);
+  border: 1px solid var(--colorAccentDark);
 }
 
 .btnGhost:hover {
-  background: var(--colorInk);
-  color: var(--colorBg);
+  background: var(--colorAccentDark);
+  color: var(--colorSurface);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+
   * {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;

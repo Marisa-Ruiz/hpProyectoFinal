@@ -42,6 +42,8 @@ function HomePage() {
                 </div>
             </section>
 
+            <div className="sectionDivider" aria-hidden="true"></div>
+
             <section className="container section">
                 <h2>Herramientas con las que trabajo:</h2>
                 <ul className="skills">
@@ -72,4 +74,3 @@ function HomePage() {
 }
 
 export default HomePage
-

@@ -1,0 +1,205 @@
+.hero {
+    position: relative;
+    padding: var(--spaceXl) 0 var(--spaceLg);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(168, 130, 60, 0.08), transparent 40%),
+        var(--colorBgAlt);
+    border-bottom: 1px solid var(--colorBorder);
+}
+
+.heroInner {
+    max-width: 760px;
+}
+
+.heroEyebrow {
+    display: inline-block;
+    font-family: var(--fontBody);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--colorAccentDark);
+    margin-bottom: var(--spaceXs);
+}
+
+.heroEyebrow::before {
+    content: "✦ ";
+    color: var(--colorAccent);
+}
+
+.heroTitle {
+    font-size: clamp(2.1rem, 4vw, 3rem);
+    margin-bottom: var(--spaceSm);
+}
+
+.heroLead {
+    font-size: 1.05rem;
+    color: var(--colorInkSoft);
+    max-width: 60ch;
+}
+
+.heroActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spaceSm);
+    margin-top: var(--spaceMd);
+}
+
+.section {
+    padding: var(--spaceLg) var(--spaceMd);
+}
+
+.section h2 {
+    font-size: 1.6rem;
+    margin-bottom: var(--spaceMd);
+    position: relative;
+    display: inline-block;
+}
+
+.section h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin-top: 0.5rem;
+    background: var(--colorAccent);
+    border-radius: 2px;
+}
+
+.sectionDivider {
+    text-align: center;
+    color: var(--colorAccent);
+    font-size: 1.1rem;
+    letter-spacing: 0.5rem;
+    margin: var(--spaceLg) 0;
+    opacity: 0.6;
+}
+
+.sectionDivider::before {
+    content: "✦ ⚡ ✦";
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spaceMd);
+}
+
+.serviceCard {
+    background: var(--colorSurface);
+    border: 1px solid var(--colorBorder);
+    border-top: 3px solid var(--colorAccent);
+    border-radius: var(--radius);
+    padding: var(--spaceMd);
+    box-shadow: var(--shadowSoft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.serviceCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(32, 27, 46, 0.16);
+}
+
+.services .serviceCard:nth-child(1) {
+    border-top-color: var(--colorGryffindor);
+}
+
+.services .serviceCard:nth-child(2) {
+    border-top-color: var(--colorRavenclaw);
+}
+
+.services .serviceCard:nth-child(3) {
+    border-top-color: var(--colorHufflepuff);
+}
+
+.serviceCard h3 {
+    font-size: 1.15rem;
+    margin-bottom: var(--spaceXs);
+    color: var(--colorAccentDark);
+}
+
+.serviceCard p {
+    color: var(--colorInkSoft);
+    margin: 0;
+}
+
+.skills {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0;
+    margin: 0;
+}
+
+.skillsItem {
+    position: relative;
+    display: inline-flex;
+    width: auto;
+    padding: 0.5rem 1rem 0.5rem 1.6rem;
+    background: linear-gradient(180deg, var(--colorSurface), var(--colorBgAlt));
+    border: 1px solid var(--colorAccent);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    color: var(--colorInk);
+}
+
+.skillsItem::before {
+    content: "✦";
+    position: absolute;
+    left: 0.7rem;
+    color: var(--colorAccent);
+    font-size: 0.75rem;
+}
+
+.cta {
+    background: var(--colorSurface);
+    border: 1px solid var(--colorBorder);
+    border-radius: var(--radius);
+    padding: var(--spaceLg);
+    text-align: center;
+    box-shadow: var(--shadowSoft);
+}
+
+.cta p {
+    max-width: 60ch;
+    margin: 0 auto var(--spaceMd);
+    color: var(--colorInkSoft);
+}
+
+.ctaLinks {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-weight: 600;
+}
+
+.ctaLink {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: var(--colorAccentDark);
+}
+
+.ctaLink:hover {
+    color: var(--colorInk);
+}
+
+.ctaDivider {
+    color: var(--colorBorder);
+}
+
+@media (max-width: 640px) {
+    .hero {
+        padding: var(--spaceLg) 0 var(--spaceMd);
+    }
+
+    .heroActions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cta {
+        padding: var(--spaceMd);
+    }
+}
