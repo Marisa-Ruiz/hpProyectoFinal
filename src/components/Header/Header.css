@@ -7,18 +7,17 @@
 }
 
 .headerInner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  
-  /* CAMBIA ESTAS DOS LÍNEAS: */
-  padding-top: 2.5rem;    /* Aumenta este valor a tu gusto */
-  padding-bottom: 2.5rem; /* Asegúrate de poner el mismo valor abajo para que quede centrado */
-  
-  flex-wrap: wrap;
-  gap: var(--spaceXs);
-  width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+
+    flex-wrap: wrap;
+    gap: var(--spaceXs);
 }
+
 
 .headerBrand {
     font-family: var(--fontDisplay);

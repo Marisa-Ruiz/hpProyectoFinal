@@ -1,27 +1,130 @@
 :root {
-  --colorInk: #111215;
-  --colorBg: #ffffff;
-  --colorAccent: #ffb703;
+  --colorBg: #f3ecd9;
+  --colorBgAlt: #ece0c2;
+  --colorSurface: #fbf7ec;
+  --colorInk: #201b2e;
+  --colorInkSoft: #4a4460;
+  --colorBorder: #d8cba0;
+
+  --colorAccent: #a8823c;
+  --colorAccentDark: #7c5f27;
+
+  --colorGryffindor: #7f0c1b;
+  --colorSlytherin: #12513a;
+  --colorRavenclaw: #1b3a63;
+  --colorHufflepuff: #a87a00;
+
+  --fontDisplay: 'Spectral', Georgia, serif;
+  --fontBody: 'Work Sans', system-ui, sans-serif;
 
   --spaceXs: 0.5rem;
-  --spaceSm: 0.8rem;
-  --spaceMd: 1.5rem;
+  --spaceSm: 1rem;
+  --spaceMd: 1.75rem;
+  --spaceLg: 3rem;
+  --spaceXl: 5rem;
 
-  --fontDisplay: sans-serif;
+  --radius: 6px;
+  --shadowSoft: 0 8px 24px rgba(32, 27, 46, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  padding: 0;
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--colorBg);
+  color: var(--colorInk);
+  font-family: var(--fontBody);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--fontDisplay);
+  color: var(--colorInk);
+  line-height: 1.15;
+  margin: 0 0 var(--spaceSm);
+}
+
+p {
+  margin: 0 0 var(--spaceSm);
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--colorAccent);
+  outline-offset: 2px;
 }
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 1.5rem;
-  box-sizing: border-box;
+  padding: 0 var(--spaceMd);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--colorInk);
+  background: var(--colorInk);
+  color: var(--colorBg);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--colorInkSoft);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--colorInk);
+}
+
+.btnGhost:hover {
+  background: var(--colorInk);
+  color: var(--colorBg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
