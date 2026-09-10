@@ -1,0 +1,8 @@
+.filtersBar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spaceSm) var(--spaceMd);
+    align-items: flex-end;
+    padding-top: var(--spaceMd);
+    border-top: 1px solid var(--colorBorder);
+}
