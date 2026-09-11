@@ -21,7 +21,7 @@ function Header() {
                         Inicio
                     </NavLink>
                     <NavLink
-                        to="/personajes"
+                        to="/characters"
                         className={({ isActive }) =>
                             isActive ? 'headerLink headerLinkActive' : 'headerLink'
                         }

@@ -1,3 +1,4 @@
+import { FALLBACK_IMAGE } from '../../data/constants.js'
 import './CharacterCard.css'
 
 function houseClassName(house) {
