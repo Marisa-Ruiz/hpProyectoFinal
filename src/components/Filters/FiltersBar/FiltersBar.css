@@ -1,8 +1,8 @@
 .filtersBar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spaceSm) var(--spaceMd);
-    align-items: flex-end;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spaceMd) var(--spaceLg);
+    align-items: end;
     padding-top: var(--spaceMd);
     border-top: 1px solid var(--colorBorder);
 }

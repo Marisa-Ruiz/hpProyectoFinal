@@ -10,7 +10,7 @@ function SearchBar({ value, onChange }) {
                 id="searchInput"
                 type="search"
                 className="searchBarInput"
-                placeholder="Ej. Hermione, Snape, Neville…"
+                placeholder="Buscar personaje…"
                 value={value}
                 onChange={(event) => onChange(event.target.value)}
             />
