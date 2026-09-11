@@ -1,0 +1,18 @@
+.charactersPage {
+    padding: var(--spaceLg) 0 var(--spaceXl);
+}
+
+.charactersPageIntro {
+    max-width: 640px;
+    margin-bottom: var(--spaceSm);
+}
+
+.charactersPageIntro p {
+    color: var(--colorInkSoft);
+}
+
+.charactersPageCount {
+    margin-top: var(--spaceMd);
+    font-size: 0.9rem;
+    color: var(--colorInkSoft);
+}

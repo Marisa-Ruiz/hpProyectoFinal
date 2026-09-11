@@ -1,0 +1,25 @@
+.footer {
+    background: var(--colorBgAlt);
+    border-top: 1px solid var(--colorBorder);
+    margin-top: var(--spaceXl);
+}
+
+.footerInner {
+    padding: var(--spaceMd) var(--spaceMd);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spaceXs) var(--spaceMd);
+    justify-content: space-between;
+}
+
+.footerText {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--colorInkSoft);
+}
+
+.footerLink {
+    color: var(--colorAccentDark);
+    font-weight: 600;
+    text-decoration: underline;
+}
