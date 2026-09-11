@@ -1,113 +1,145 @@
-# ⚡ Archivo Mágico
+# ⚡ Archivo Mágico — Universo Harry Potter
 
-Una web hecha con **React** que consume la [HP-API](https://hp-api.onrender.com/) para mostrar personajes del universo de Harry Potter, y que además sirve como página de presentación de un desarrollador freelance.
+![Vista previa de la aplicación](./public/preview.jpg)
 
-Es un proyecto final de bootcamp, pensado tanto para practicar consumo de APIs con Axios como para tener una pieza de portfolio real que enseñar.
+Proyecto final desarrollado en **React** para el módulo de frontend. La aplicación consume la API pública de Harry Potter ([HP-API](https://hp-api.onrender.com/)) mediante **Axios**, mostrando fichas interactivas de personajes con filtrado dinámico. Además, incluye una página de presentación personal como desarrolladora web freelance.
 
-## 🔗 Enlaces
+---
 
-- **Repositorio:** https://github.com/Marisa-Ruiz/hpProyectoFinal
-- **Demo en producción:** _(añadir aquí el enlace de Vercel una vez desplegado)_
+## 🚀 Demo y Repositorio
 
-## 🪄 Qué hace la web
+* **Repositorio:** [github.com/Marisa-Ruiz/hpProyectoFinal](https://github.com/Marisa-Ruiz/hpProyectoFinal)
+* **Rama de trabajo:** `dev`
 
-La aplicación tiene dos páginas, conectadas mediante React Router:
+---
 
-- **Inicio** — Presentación personal como desarrolladora freelance: quién soy, qué servicios ofrezco y cómo contactar.
-- **Personajes** — Consume la HP-API en tiempo real y muestra los personajes en tarjetas, con:
-  - Buscador por nombre
-  - Filtro por casa de Hogwarts
-  - Filtro por rol (estudiante / personal de Hogwarts)
-  - Estados de carga y error propios, sin depender de recargar la página
+## 🧭 ¿Qué incluye la web?
 
-Todo el diseño es responsive: se adapta desde pantallas de escritorio hasta móviles pequeños.
+La aplicación cuenta con dos páginas principales conectadas mediante **React Router**:
 
-## 🧱 Tecnologías
+### 1. Inicio (`/`) — Portfolio Freelance
+Página de aterrizaje donde me presento como desarrolladora web frontend:
+* Quién soy y enfoque de trabajo.
+* Servicios que ofrezco (desarrollo a medida, integración de APIs, mantenimiento).
+* Stack de tecnologías habituales.
+* Llamadas a la acción y enlaces directos de contacto (Email, LinkedIn, GitHub).
 
-- [React](https://react.dev/) con [Vite](https://vitejs.dev/)
-- [Axios](https://axios-http.com/) para las peticiones a la API
-- [React Router](https://reactrouter.com/) para la navegación entre páginas
-- CSS puro, sin frameworks
+### 2. Personajes (`/characters`) — Explorador con HP-API
+Consume datos en tiempo real de la API de Harry Potter y muestra los personajes en un catálogo visual con:
+* **Buscador en tiempo real** por nombre del personaje.
+* **Filtro por Casa de Hogwarts** (Gryffindor, Slytherin, Ravenclaw, Hufflepuff o todas).
+* **Filtro por Rol** (Estudiantes o Personal docente/staff).
+* **Filtros combinables:** puedes filtrar por casa y rol a la vez (ej. ver únicamente estudiantes de Gryffindor) de manera instantánea.
+* **Manejo de estados:** componentes dedicados para carga (`Loader`) y posibles fallos de conexión (`ErrorMessage`).
+* **Imágenes protegidas:** si un personaje no tiene foto o el enlace externo falla, se muestra automáticamente un placeholder ilustrado.
+
+Toda la interfaz cuenta con **Header sticky** con enlaces activos, **Footer** informativo y diseño 100% **responsive** adaptable a móvil y escritorio.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+* **React 19** con **Vite** como empaquetador rápido.
+* **Axios** para el cliente HTTP y consumo de la REST API.
+* **React Router Dom (v7)** para el enrutamiento SPA sin recargas.
+* **CSS puro modular:** variables CSS nativas para colores y espaciados temáticos, sin sobrecargar con librerías externas.
+* **ESLint** para mantener el código limpio y sin errores de sintaxis.
+
+---
 
 ## 📁 Estructura del proyecto
-src/
-├── components/
-│ ├── Header/ # Cabecera con navegación
-│ ├── Footer/ # Pie de página
-│ ├── CharacterCard/ # Tarjeta individual de personaje
-│ ├── CharacterList/ # Rejilla de tarjetas
-│ ├── Filters/
-│ │ ├── FiltersBar/ # Agrupa los tres filtros
-│ │ ├── FilterSelect/ # Select reutilizable (casa / rol)
-│ │ └── SearchBar/ # Buscador por nombre
-│ └── Common/
-│ ├── Loader/ # Indicador de carga
-│ └── ErrorMessage/ # Mensaje de error
-├── data/
-│ └── constants.js # Listas de casas, roles e imagen de reserva
-├── hooks/
-│ └── useCharacters.js # Lógica de carga de personajes según filtros
-├── pages/
-│ ├── homePage/ # Página de inicio (freelance)
-│ └── charactersPage/ # Página de personajes
-├── services/
-│ └── apiService.js # Única puerta de entrada a la HP-API
-├── App.jsx # Rutas y layout general
-└── main.jsx # Punto de entrada
 
-La idea detrás de esta organización: los componentes nunca llaman a Axios directamente. Todo pasa por `apiService.js`, y `useCharacters.js` es el único sitio que decide qué función del servicio llamar según los filtros activos. Si mañana cambia la API, solo hay que tocar un archivo.
+El código está organizado siguiendo buenas prácticas de modularidad y responsabilidad única:
 
-## 🌐 Endpoints de la HP-API utilizados
+```text
+hpProyectoFinal/
+├── public/
+│   ├── favicon.svg
+│   └── preview.jpg
+├── src/
+│   ├── components/
+│   │   ├── CharacterCard/       # Ficha individual con datos y fallback de imagen
+│   │   ├── CharacterList/       # Rejilla de tarjetas con mensaje de estado vacío
+│   │   ├── Common/              # Componentes reutilizables (Loader, ErrorMessage)
+│   │   ├── Filters/             # Buscador y selectores de filtros
+│   │   ├── Header/              # Barra de navegación con indicador de página activa
+│   │   └── Footer/              # Pie de página con créditos
+│   ├── data/
+│   │   └── constants.js         # Constantes de casas, roles e imagen por defecto
+│   ├── hooks/
+│   │   └── useCharacters.js     # Custom hook para obtención y filtrado en memoria
+│   ├── pages/
+│   │   ├── homePage/            # Página de presentación freelance
+│   │   └── charactersPage/      # Catálogo de personajes
+│   ├── services/
+│   │   └── apiService.js        # Capa de servicio Axios conectada a la HP-API
+│   ├── App.jsx                  # Rutas y maquetación principal
+│   ├── index.css                # Variables de diseño y estilos globales
+│   └── main.jsx                 # Punto de entrada de la app
+├── package.json
+└── vite.config.js
+```
 
-| Endpoint | Cuándo se usa |
-|---|---|
-| `GET /api/characters` | Sin filtro de casa ni de rol |
-| `GET /api/characters/students` | Filtro de rol = "Estudiantes" |
-| `GET /api/characters/staff` | Filtro de rol = "Personal de Hogwarts" |
-| `GET /api/characters/house/:house` | Hay una casa seleccionada (tiene prioridad sobre el rol) |
+> **Criterio Clean Code:** Los componentes visuales no conocen los detalles técnicos de la API. Toda la comunicación HTTP está encapsulada en `apiService.js`, y la lógica de estado se gestiona en el custom hook `useCharacters.js`.
 
-La búsqueda por nombre se resuelve en el propio navegador, filtrando sobre los personajes ya recibidos — la API no ofrece un endpoint de búsqueda.
+---
 
-## 💻 Instalación y uso en local
+## 🌐 Endpoints de la API
 
-Necesitas [Node.js](https://nodejs.org/) 18 o superior instalado. Compruébalo con:
+La aplicación se comunica con [https://hp-api.onrender.com/api](https://hp-api.onrender.com/api) a través de Axios:
 
+| Endpoint | Descripción |
+| :--- | :--- |
+| `GET /characters` | Obtiene el catálogo completo de personajes |
+| `GET /characters/students` | Personajes que son estudiantes |
+| `GET /characters/staff` | Personal docente y empleados de Hogwarts |
+| `GET /characters/house/:house` | Personajes pertenecientes a una casa específica |
+
+---
+
+## 💻 Instalación y ejecución en local
+
+Para clonar y probar el proyecto en tu ordenador, sigue estos pasos:
+
+### 1. Requisitos previos
+Tener instalado [Node.js](https://nodejs.org/) (versión 18 o superior). Puedes comprobarlo con:
 ```bash
 node -v
 ```
 
-Pasos:
-
+### 2. Clonar el repositorio
 ```bash
-# 1. Clona el repositorio
 git clone https://github.com/Marisa-Ruiz/hpProyectoFinal.git
 cd hpProyectoFinal
+```
 
-# 2. Instala las dependencias
+### 3. Instalar dependencias
+```bash
 npm install
+```
 
-# 3. Arranca el servidor de desarrollo
+### 4. Iniciar el entorno de desarrollo
+```bash
 npm run dev
 ```
 
-Abre la URL que aparece en la terminal (normalmente `http://localhost:5173`).
+La aplicación se abrirá en `http://localhost:5173/` (o el puerto que te indique la consola).
 
-### Otros scripts disponibles
+### Otros comandos útiles:
+* `npm run lint` — Pasa el linter ESLint (0 errores).
+* `npm run build` — Genera el empaquetado optimizado en la carpeta `/dist`.
+* `npm run preview` — Previsualiza localmente el build de producción.
 
-```bash
-npm run build     # Genera la versión de producción en /dist
-npm run preview   # Sirve en local la versión de /dist
-npm run lint       # Revisa el código con ESLint
-```
+---
 
-## 🚀 Despliegue
+## ⏱️ Nota sobre la API de pruebas
 
-El proyecto está desplegado en [Vercel](https://vercel.com/), conectado directamente al repositorio de GitHub: cada cambio en la rama `main` se despliega automáticamente.
+La HP-API gratuita está alojada en Render. Si el servidor lleva un rato inactivo entra en reposo temporal, por lo que la primera carga puede demorarse unos segundos hasta despertar. Una vez cargados los datos, toda la navegación y filtrado funcionan de forma inmediata.
 
-## ⚠️ Nota sobre la API
+---
 
-La HP-API está alojada en un plan gratuito de Render, que "duerme" el servidor tras un rato sin actividad. La primera petición después de un periodo de inactividad puede tardar unos segundos en responder mientras el servidor se reactiva — es un comportamiento normal de la API, no un fallo de esta aplicación.
+## 👤 Autora
 
-## ✨ Créditos
-
-Datos de personajes proporcionados por [HP-API](https://hp-api.onrender.com/), un proyecto de código abierto no afiliado a J.K. Rowling ni a Warner Bros. Este repositorio es un ejercicio de portfolio con fines educativos.
+* **Marisa Ruiz** — Desarrolladora Frontend
+* Contacto: [marysa.rt85@gmail.com](mailto:marysa.rt85@gmail.com)
+* GitHub: [@Marisa-Ruiz](https://github.com/Marisa-Ruiz)
