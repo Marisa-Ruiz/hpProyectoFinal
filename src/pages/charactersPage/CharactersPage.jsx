@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react'
 import FiltersBar from '../../components/Filters/FiltersBar/FiltersBar';
 import CharacterList from '../../components/CharacterList/CharacterList';
+import Loader from '../../components/Common/Loader/Loader.jsx'
+import ErrorMessage from '../../components/Common/ErrorMessage/ErrorMessage.jsx'
+import { useCharacters } from '../../hooks/useCharacters.js'
 import './CharactersPage.css'
 
 

@@ -1,5 +1,6 @@
 import FilterSelect from '../FilterSelect/FilterSelect';
 import SearchBar from '../SearchBar/SearchBar';
+import { HOUSES, ROLES } from '../../../data/constants.js'
 import './FiltersBar.css';
 
 function FiltersBar({ search, onSearchChange, house, onHouseChange, role, onRoleChange }) {
