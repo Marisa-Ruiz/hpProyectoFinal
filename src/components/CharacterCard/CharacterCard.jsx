@@ -19,6 +19,7 @@ function CharacterCard({ character }) {
                     alt={`Retrato de ${name}`}
                     loading="lazy"
                     onError={(event) => {
+                        event.currentTarget.onerror = null
                         event.currentTarget.src = FALLBACK_IMAGE
                     }}
                 />

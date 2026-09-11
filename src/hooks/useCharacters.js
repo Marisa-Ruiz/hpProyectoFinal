@@ -1,13 +1,8 @@
-import { useEffect, useState } from 'react'
-import {
-    getAllCharacters,
-    getCharactersByHouse,
-    getStaff,
-    getStudents,
-} from '../services/apiService.js'
+import { useEffect, useMemo, useState } from 'react'
+import { getAllCharacters } from '../services/apiService.js'
 
-export function useCharacters({ house, role }) {
-    const [characters, setCharacters] = useState([])
+export function useCharacters({ house = 'all', role = 'all' } = {}) {
+    const [allCharacters, setAllCharacters] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null)
 
@@ -19,21 +14,11 @@ export function useCharacters({ house, role }) {
             setError(null)
 
             try {
-                let result
-                if (house !== 'all') {
-                    result = await getCharactersByHouse(house)
-                } else if (role === 'students') {
-                    result = await getStudents()
-                } else if (role === 'staff') {
-                    result = await getStaff()
-                } else {
-                    result = await getAllCharacters()
-                }
-
+                const result = await getAllCharacters()
                 if (!isCancelled) {
-                    setCharacters(result)
+                    setAllCharacters(result)
                 }
-            } catch (err) {
+            } catch {
                 if (!isCancelled) {
                     setError('No se han podido cargar los personajes. Inténtalo de nuevo en unos segundos.')
                 }
@@ -49,7 +34,22 @@ export function useCharacters({ house, role }) {
         return () => {
             isCancelled = true
         }
-    }, [house, role])
+    }, [])
+
+    const characters = useMemo(() => {
+        return allCharacters.filter((character) => {
+            const matchesHouse =
+                house === 'all' ||
+                (character.house && character.house.toLowerCase() === house.toLowerCase())
+
+            const matchesRole =
+                role === 'all' ||
+                (role === 'students' && Boolean(character.hogwartsStudent)) ||
+                (role === 'staff' && Boolean(character.hogwartsStaff))
+
+            return matchesHouse && matchesRole
+        })
+    }, [allCharacters, house, role])
 
     return { characters, isLoading, error }
 }
