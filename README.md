@@ -1,6 +1,6 @@
 # ⚡ Archivo Mágico — Universo Harry Potter
 
-![Vista previa de la aplicación](./public/preview.jpg)
+![Vista previa de la aplicación](src/assets/imgReadme.png)
 
 Proyecto final desarrollado en **React** para el módulo de frontend. La aplicación consume la API pública de Harry Potter ([HP-API](https://hp-api.onrender.com/)) mediante **Axios**, mostrando fichas interactivas de personajes con filtrado dinámico. Además, incluye una página de presentación personal como desarrolladora web freelance.
 
@@ -8,8 +8,8 @@ Proyecto final desarrollado en **React** para el módulo de frontend. La aplicac
 
 ## 🚀 Demo y Repositorio
 
-* **Repositorio:** [github.com/Marisa-Ruiz/hpProyectoFinal](https://github.com/Marisa-Ruiz/hpProyectoFinal)
-* **Rama de trabajo:** `dev`
+* **[GitHub](https://github.com/Marisa-Ruiz/hpProyectoFinal)**
+* **[Vercel](https://hp-proyecto-final.vercel.app/)**
 
 ---
 
@@ -141,5 +141,5 @@ La HP-API gratuita está alojada en Render. Si el servidor lleva un rato inactiv
 ## 👤 Autora
 
 * **Marisa Ruiz** — Desarrolladora Frontend
-* Contacto: [marysa.rt85@gmail.com](mailto:marysa.rt85@gmail.com)
-* GitHub: [@Marisa-Ruiz](https://github.com/Marisa-Ruiz)
+* [Contacto](mailto:marysa.rt85@gmail.com)
+* [GitHub](https://github.com/Marisa-Ruiz)
