@@ -12,7 +12,7 @@ function HomePage() {
                         Soy Marisa, desarrolladora frontend. Creo páginas y aplicaciones web con tecnologías como HTML, CSS, JavaScript y React, buscando que sean claras, funcionales y adaptadas a las necesidades de cada proyecto.
                     </p>
                     <div className="heroActions">
-                        <Link to="/personajes" className="btn">
+                        <Link to="/characters" className="btn">
                             Ver mi proyecto
                         </Link>
                         <a href="mailto:marysa.rt85@gmail.com" className="btn btnGhost">
